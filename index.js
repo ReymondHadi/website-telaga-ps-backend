@@ -19,6 +19,17 @@ app.get("/", (req, res)=>{
     res.send("Express App is Running")
 })
 
+const corsOptions = {
+  origin: [
+    'https://website-telaga-ps-frontend-git-master-reymond-hadis-projects.vercel.app/',
+    `http://localhost:${port}`
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+};
+
+app.use(cors(corsOptions));
+
 // Image Storage Engine
 
 const storage = multer.diskStorage({
